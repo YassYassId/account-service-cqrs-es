@@ -2,6 +2,7 @@ package com.yassine.accountservicecqrses.commands.controllers;
 
 import com.yassine.accountservicecqrses.commonapi.commands.CreateAccountCommand;
 import com.yassine.accountservicecqrses.commonapi.commands.CreditAccountCommand;
+import com.yassine.accountservicecqrses.commonapi.commands.DebitAccountCommand;
 import com.yassine.accountservicecqrses.commonapi.dtos.CreateAccountDTO;
 import com.yassine.accountservicecqrses.commonapi.dtos.CreditAccountDTO;
 import com.yassine.accountservicecqrses.commonapi.dtos.DebitAccountDTO;
@@ -43,7 +44,7 @@ public class AccountCommandController {
 
     @PostMapping("/debit")
     public CompletableFuture<String> debitAccount(@RequestBody DebitAccountDTO request) {
-        CompletableFuture<String> result = commandGateway.send(new CreditAccountCommand(
+        CompletableFuture<String> result = commandGateway.send(new DebitAccountCommand(
                 request.accountId(),
                 request.amount(),
                 request.currency()));
