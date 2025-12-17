@@ -425,8 +425,10 @@ spring.datasource.url=jdbc:mysql://localhost:3306/dbEbank
 spring.datasource.username=root
 spring.datasource.password=
 spring.jpa.hibernate.ddl-auto=create
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
 axon.serializer.events=jackson
 axon.serializer.messages=xstream
+axon.serializer.general=jackson
 ```
 
 ### [`application.properties`](analytics-service/src/main/resources/application.properties) (Analytics Service)
@@ -436,6 +438,9 @@ spring.application.name=analytics-service
 server.port=8084
 spring.datasource.url=jdbc:h2:mem:analyticsdb
 spring.h2.console.enabled=true
+axon.serializer.events=jackson
+axon.serializer.messages=xstream
+axon.serializer.general=jackson
 ```
 
 ## Points d'apprentissage
